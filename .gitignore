@@ -1,0 +1,50 @@
+# ── Dependencies ─────────────────────────────────
+node_modules/
+frontend/node_modules/
+backend/venv/
+backend/__pycache__/
+backend/app/__pycache__/
+backend/app/routes/__pycache__/
+**/__pycache__/
+*.pyc
+
+# ── Environment / Secrets ────────────────────────
+.env
+.env.local
+.env.production
+.env*.local
+backend/.env
+frontend/.env.local
+
+# ── Build outputs ────────────────────────────────
+frontend/.next/
+frontend/out/
+*.tsbuildinfo
+
+# ── Logs ─────────────────────────────────────────
+*.log
+sent_emails.log
+npm-debug.log*
+
+# ── OS files ─────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── IDE ──────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Claude / AI tooling ─────────────────────────
+CLAUDE.md
+claude.md
+frontend/CLAUDE.md
+frontend/AGENTS.md
+frontend/skill.md
+.claude/
+
+# ── Misc ─────────────────────────────────────────
+*.egg-info/
+dist/
+build/
