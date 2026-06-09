@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #faf7f2;
+  --color-foreground: #1a1a18;
+  --color-forest: #1a3a2a;
+  --color-forest-light: #2d5a42;
+  --color-cream: #faf7f2;
+  --color-cream-dark: #f0ebe3;
+  --color-gold: #c4973b;
+  --color-gold-light: #d4aa5a;
+  --color-gold-pale: #f5ecd7;
+  --color-ink: #1a1a18;
+  --color-ink-light: #4a4a45;
+  --color-ink-faded: #8a8a82;
+  --color-paper: #ffffff;
+  --color-rose: #c45d4a;
+}
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scale-up {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50% { transform: translateY(-16px) rotate(1deg); }
+}
+@keyframes stamp {
+  0% { transform: scale(1.5) rotate(-8deg); opacity: 0; }
+  60% { transform: scale(0.95) rotate(-4deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-3deg); opacity: 1; }
+}
+@keyframes draw-line {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.anim-fade-up { animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; opacity: 0; }
+.anim-fade-in { animation: fade-in 0.5s ease forwards; opacity: 0; }
+.anim-scale-up { animation: scale-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; opacity: 0; }
+.anim-slide-right { animation: slide-in-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; opacity: 0; }
+.anim-float { animation: float 6s ease-in-out infinite; }
+.anim-stamp { animation: stamp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.anim-ticker { animation: ticker 20s linear infinite; }
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+/* ── Grain texture ───────────────────────────────────────── */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* ── Decorative rule ─────────────────────────────────────── */
+.rule-ornament {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-gold);
+}
+.rule-ornament::before,
+.rule-ornament::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.3;
+}
+
+/* ── Nav link ───────────────────────────────────────────── */
+.nav-link {
+  color: var(--color-ink-light);
+}
+.nav-link:hover {
+  background-color: var(--color-cream-dark);
+  color: var(--color-forest);
+}
+
+/* ── Focus ring ──────────────────────────────────────────── */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-gold-pale), 0 0 0 4px var(--color-gold);
+}
+
+/* ── Selection ───────────────────────────────────────────── */
+::selection {
+  background: var(--color-gold-pale);
+  color: var(--color-forest);
+}
